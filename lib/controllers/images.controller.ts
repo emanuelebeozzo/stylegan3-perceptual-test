@@ -56,13 +56,13 @@ export class ImagesController {
    * @param res express Response object
    */
   async getById(req: Request, res: Response): Promise<void> {
-    /*const userService = UserService.getInstance();
+    const imagesService = ImagesService.getInstance();
     try{
-      const usersFound = await userService.getById(req.params.id);
-      res.status(200).send(usersFound);
+      const type = await imagesService.getById(req.params.id);
+      res.status(200).send(type);
     }catch(e){
       res.status(500).json({error: 'Internal server error'});
-    }*/
+    }
   }
 
   /**

@@ -14,6 +14,7 @@ const routes: CommonRoutes[] = [];
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 /**
  * Exposing public folder
  */

@@ -22,7 +22,7 @@ export class ImagesModel {
    * Image resource schema
    */
   imageSchema: Schema = new this.dbSchema({
-    path: { 
+    id: { 
       type: String,
       required: true
     },

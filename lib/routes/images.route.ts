@@ -34,7 +34,7 @@ export class ImagesRoutes extends CommonRoutes implements ConfigureRoutes {
      * Route for the get method on the entire collection of users
      * The request is routed only to user controller function for get all (list)
     */
-    this.app.get('/api/v1/users', [
+    this.app.get('/api/images', [
       imagesController.list
     ]);
 
@@ -43,7 +43,7 @@ export class ImagesRoutes extends CommonRoutes implements ConfigureRoutes {
      * The request is routed through a middlewares that check the existance of the id to retrieve
      * Then the request is routed to the appropriate user controller function for getById
     */
-    this.app.get('/api/v1/users/:id', [
+    this.app.get('/api/images/:id', [
       imagesController.getById
     ]);
 
@@ -53,7 +53,7 @@ export class ImagesRoutes extends CommonRoutes implements ConfigureRoutes {
      * Name, surname, email password, role and birth_date
      * Then the request is routed to the appropriate user controller function for create
     */
-    this.app.post('/api/v1/users', [
+    this.app.post('/api/images', [
       imagesController.create
     ]);
 
@@ -61,7 +61,7 @@ export class ImagesRoutes extends CommonRoutes implements ConfigureRoutes {
      * Route for the patch method on the entire collection of users
      * The request is routed only to user controller function for updateAll
     */
-    this.app.patch('/api/v1/users', [
+    this.app.patch('/api/images', [
       imagesController.updateAll
     ]);
 
@@ -71,7 +71,7 @@ export class ImagesRoutes extends CommonRoutes implements ConfigureRoutes {
      * The middlewares also check the validity of the body and of the request
      * Then the request is routed to the appropriate user controller function for UpdateById
     */
-    this.app.patch('/api/v1/users/:id', [
+    this.app.patch('/api/images/:id', [
       imagesController.updateById
     ]);
 
@@ -80,7 +80,7 @@ export class ImagesRoutes extends CommonRoutes implements ConfigureRoutes {
      * The request is routed through a middleware that check the existence of the id to delete
      * Then the request is routed to the appropriate user controller function for deleteById
     */
-    this.app.delete('/api/v1/users/:id',[
+    this.app.delete('/api/images/:id',[
       imagesController.deleteById
     ]);
 

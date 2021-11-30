@@ -53,8 +53,8 @@ export class ImagesService {
    * @returns requested user
    */
   async getById(resourceId: string): Promise<any>{
-    //const user = await this.userModel.userCollection.findById(resourceId).select(['-password', '-salt', '-__v']);
-    //return user;
+    const type = await this.imagesModel.imagesCollection.findById(resourceId).select(['-id', '-__v']);
+    return type;
   }
 
   /**
