@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es6",           
+    "module": "commonjs",
+    "outDir": "dist",
+    "strict": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,                     /* Skip type checking of declaration files. */
+    "forceConsistentCasingInFileNames": true,  /* Disallow inconsistently-cased references to the same file. */
+    "resolveJsonModule" : true,
+    "suppressImplicitAnyIndexErrors": true
+  },
+  "include": [
+    "lib/**/*.ts"
+  ]
+}
