@@ -20,11 +20,11 @@ export class MongooseService {
    */
   options = {
     autoIndex: true,            //Mongoose will automatically build indexes
-    poolSize: 10,               //Maximum number of sockets that need to be kept open
-    bufferMaxEntries: 0,        //Disabling MongoDB buffering mechanism, errors should be thrown when the driver is not connected
+    //poolSize: 10,               //Maximum number of sockets that need to be kept open
+    //bufferMaxEntries: 0,        //Disabling MongoDB buffering mechanism, errors should be thrown when the driver is not connected
     useNewUrlParser: true,      //Use new connection string parser
-    useUnifiedTopology: true,   //Set the new MongoDB connection management engine
-    useCreateIndex: true        //Set createIndex() as Mongoose's default index method for creating index
+    useUnifiedTopology: true   //Set the new MongoDB connection management engine
+    //useCreateIndex: true        //Set createIndex() as Mongoose's default index method for creating index
   };
 
   /**
