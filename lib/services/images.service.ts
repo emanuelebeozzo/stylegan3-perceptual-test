@@ -1,4 +1,5 @@
 import { ImagesModel } from '../models/images.model';
+import mongoose from 'mongoose';
 
 /**
  * It aims to manage all the operations that involve the _user_ resource
@@ -78,5 +79,29 @@ export class ImagesService {
    */
   async filterList(parameters: any): Promise<any>{
     return await this.imagesModel.imagesCollection.find(parameters).select(['_id']);
+  }
+
+  /**
+   * Function which creates the evaluation resource record
+   * 
+   * @param resource 
+   * 
+   * @returns id of the created resource
+   */
+   async createEval(resource: any) : Promise<any>{
+    const newDocumentId = new mongoose.Types.ObjectId();
+    const user = new this.imagesModel.imagesCollection(resource);
+    await this.imagesModel.imagesCollection.updateOne({
+      _id: resource._id,
+    }, {
+      $push: {
+        evaluations_list: {
+          _id: newDocumentId,
+          user_id: resource.user_id,
+          evaluation: resource.evaluation,
+        }
+      }
+    });
+    return newDocumentId;
   }
 }

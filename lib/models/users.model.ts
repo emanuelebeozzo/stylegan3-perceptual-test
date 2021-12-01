@@ -3,7 +3,7 @@ import { Types } from 'mongoose';
 import { MongooseService } from '../common/services/mongoose.service';
 
 /**Class which specifies the schema for a user in the DB */
-export class ImagesModel {
+export class UsersModel {
   /**
    * MongooseService instance
    */
@@ -11,7 +11,7 @@ export class ImagesModel {
   /**
    * UserModel instance
    */
-  private static instance: ImagesModel;
+  private static instance: UsersModel;
 
   /**
    * DatabaseSchema
@@ -21,43 +21,26 @@ export class ImagesModel {
   /**
    * Image resource schema
    */
-  imageSchema: Schema = new this.dbSchema({
-    path: { 
+  userSchema: Schema = new this.dbSchema({
+    username: {
       type: String,
       required: true
-    },
-    // 0: real
-    // 1: synthethic
-    type: { 
-      type: Number, 
-      required: true
-    }, 
-    evaluations_list: [{
-      evaluation: {
-        type: Number,
-        required: true
-      }, 
-      user_id: {
-        type: Schema.Types.ObjectId, 
-        ref: 'users',
-        required: true
-      }
-    }]
+    }
    });
 
   /**
    * Image model
    */
-  imagesCollection = this.mongooseService.getMongoose().model('images', this.imageSchema);
+  usersCollection = this.mongooseService.getMongoose().model('users', this.userSchema);
 
   constructor(){}
 
   /**
    * Function which returns the instance of UserModel class
    */
-  public static getInstance(): ImagesModel{
+  public static getInstance(): UsersModel{
     if (!this.instance) {
-      this.instance = new ImagesModel();
+      this.instance = new UsersModel();
     }
     return this.instance;
   }

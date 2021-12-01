@@ -2,6 +2,7 @@ import exp from 'constants';
 import express, { Application, NextFunction, Request, Response } from 'express';
 import { CommonRoutes } from './common/routes/common.routes'
 import { ImagesRoutes } from './routes/images.route';
+import { UsersRoutes } from './routes/users.route';
 
 //Get the port
 /**Port on which the server will listen onto */
@@ -37,6 +38,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 });
 
 routes.push(new ImagesRoutes(app));
+routes.push(new UsersRoutes(app));
 
 /**
  * Configuring all the routes

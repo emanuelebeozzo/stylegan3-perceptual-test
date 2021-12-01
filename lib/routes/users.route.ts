@@ -1,15 +1,15 @@
 import { Application } from 'express';
 import { CommonRoutes } from '../common/routes/common.routes'
 import { ConfigureRoutes } from '../common/interfaces/configureRoutes.interface'
-import { ImagesController } from  '../controllers/images.controller'
-import { ImagesMiddleware } from '../middlewares/images.middleware'
+import { UsersController } from  '../controllers/users.controller'
+import { UsersMiddleware } from '../middlewares/users.middleware'
 
 /**
  * UserRoutes class, it extends the {@link CommonRoutes} class and implements the {@link ConfigureRoutes} interface.
  * It aims to manage all the requests received for the resource _/images_.
  * It sets the middlewares and the methods that should be called for a specific operation
  */
-export class ImagesRoutes extends CommonRoutes implements ConfigureRoutes {
+export class UsersRoutes extends CommonRoutes implements ConfigureRoutes {
 
   /**
    * Constructor that calls the consutructor of CommonRoutes and calls the method that define all the routes
@@ -17,7 +17,7 @@ export class ImagesRoutes extends CommonRoutes implements ConfigureRoutes {
    * @param app instance of the node.js server
    */
   constructor(app: Application){
-    super(app, 'ImagesRoutes');
+    super(app, 'UsersRoutes');
     this.configureRoutes();
   }
 
@@ -26,16 +26,16 @@ export class ImagesRoutes extends CommonRoutes implements ConfigureRoutes {
    */
   configureRoutes(): void {
     /** Instance of user controller that implements the logic of rest method*/
-    const imagesController: ImagesController = new ImagesController();
+    const usersController: UsersController = new UsersController();
     /** Instance of user middleware that checks every request on user resources*/
-    const imagesMiddleware: ImagesMiddleware = new ImagesMiddleware();
+    const usersMiddleware: UsersMiddleware = new UsersMiddleware();
 
     /**
      * Route for the get method on the entire collection of users
      * The request is routed only to user controller function for get all (list)
     */
     this.app.get('/api/images', [
-      imagesController.list
+      usersController.list
     ]);
 
     /** 
@@ -43,8 +43,8 @@ export class ImagesRoutes extends CommonRoutes implements ConfigureRoutes {
      * The request is routed through a middlewares that check the existance of the id to retrieve
      * Then the request is routed to the appropriate user controller function for getById
     */
-    this.app.get('/api/images/:id', [
-      imagesController.getById
+    this.app.get('/api/users/:id', [
+      usersController.getById
     ]);
 
     /** 
@@ -53,24 +53,16 @@ export class ImagesRoutes extends CommonRoutes implements ConfigureRoutes {
      * Name, surname, email password, role and birth_date
      * Then the request is routed to the appropriate user controller function for create
     */
-    this.app.post('/api/images', [
-      imagesController.create
+    this.app.post('/api/users', [
+      usersController.create
     ]);
-
-    /** 
-     * 
-    */
-     this.app.post('/api/images/:id/evaluations', [
-      imagesController.createEval
-    ]);
-
 
     /** 
      * Route for the patch method on the entire collection of users
      * The request is routed only to user controller function for updateAll
     */
-    this.app.patch('/api/images', [
-      imagesController.updateAll
+    this.app.patch('/api/users', [
+      usersController.updateAll
     ]);
 
     /**
@@ -79,8 +71,8 @@ export class ImagesRoutes extends CommonRoutes implements ConfigureRoutes {
      * The middlewares also check the validity of the body and of the request
      * Then the request is routed to the appropriate user controller function for UpdateById
     */
-    this.app.patch('/api/images/:id', [
-      imagesController.updateById
+    this.app.patch('/api/users/:id', [
+      usersController.updateById
     ]);
 
     /**
@@ -88,15 +80,15 @@ export class ImagesRoutes extends CommonRoutes implements ConfigureRoutes {
      * The request is routed through a middleware that check the existence of the id to delete
      * Then the request is routed to the appropriate user controller function for deleteById
     */
-    this.app.delete('/api/images/:id',[
-      imagesController.deleteById
+    this.app.delete('/api/users/:id',[
+      usersController.deleteById
     ]);
 
     /** Define the route for the delete method on the entire collection of users
      * The request is routed only to user controller function for deleteAll
     */
-    this.app.delete('/api/images',[
-      imagesController.deleteAll
+    this.app.delete('/api/users',[
+      usersController.deleteAll
     ]);
   }
 }
