@@ -39,11 +39,19 @@ export class ImagesService {
    * 
    * @returns the list of all the users in the database
    */
-  async list(): Promise<any>{
+  /*async list(): Promise<any>{
     return new Promise((resolve, reject) => {
-      // ...
+      this.imagesModel.imagesCollection.find()
+        .exec(function (err, users) {
+          if (err) {
+            reject(err);
+          } else {
+            console.log(users)
+            resolve(users);
+          }
+        })
     });
-  }
+  }*/
 
   /**
    * Asynchronous function which retrieves a image given its id
@@ -53,8 +61,11 @@ export class ImagesService {
    * @returns requested user
    */
   async getById(resourceId: string): Promise<any>{
-    const type = await this.imagesModel.imagesCollection.findById(resourceId).select(['-id', '-__v']);
-    return type;
+    //console.log(resourceId)
+    const image = await this.imagesModel.imagesCollection.findById(resourceId).select(['-_id','-type']);
+    //console.log(image)
+    return image;
+    
   }
 
   /**
@@ -66,6 +77,6 @@ export class ImagesService {
    * @returns users that are compliant with the parameter passed
    */
   async filterList(parameters: any): Promise<any>{
-    //return await this.userModel.userCollection.find(parameters).select(['-password', '-salt', '-__v']);
+    return await this.imagesModel.imagesCollection.find(parameters).select(['_id']);
   }
 }

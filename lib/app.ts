@@ -1,3 +1,4 @@
+import exp from 'constants';
 import express, { Application, NextFunction, Request, Response } from 'express';
 import { CommonRoutes } from './common/routes/common.routes'
 import { ImagesRoutes } from './routes/images.route';
@@ -19,6 +20,8 @@ app.use(express.urlencoded({ extended: true }));
  * Exposing public folder
  */
 app.use('/', express.static('public'));
+app.use('/img', express.static('img')); //Nota: le immagini sono accessibili così http://localhost:8080/img/ffhq/0.png 
+
 /**
  * Enabling CORS, respond to the OPTION HTTP verb
  */

@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import { CommonController } from '../common/controllers/common.controller';
 import { ImagesService } from '../services/images.service';
 
 /**
@@ -6,8 +7,6 @@ import { ImagesService } from '../services/images.service';
  * It aims to manage all the operations that involves the user resource
  */
 export class ImagesController {
-  constructor() {}
-
   /**
    * Asyncronous functions that retrieves the list of users from the DB
    * and sends it back with the status code 200 otherwise 500
@@ -15,19 +14,27 @@ export class ImagesController {
    * @param res express Response object
    */
   async list(req: Request, res: Response): Promise<void>{
-    /*const userService = UserService.getInstance();
-    let users: any;
+    const imagesService = ImagesService.getInstance();
+    let real: any;
+    let fake: any;
+    let merged: any;
     try{
-      users = await userService.list();
-      if(req.query && Object.keys(req.query).length !== 0){
-        users = await userService.filterList(req.query);
-      }else{
-        users = await userService.list();
-      }
-      res.status(200).send(users);
+      real = await imagesService.filterList({type:0});
+      CommonController.extractIds(real);
+      CommonController.shuffleArray(real);
+      real = real.slice(0,1); //TODO modify to 15
+      console.log(real);
+      fake = await imagesService.filterList({type:1});
+      CommonController.extractIds(fake);
+      CommonController.shuffleArray(fake);
+      fake = fake.slice(0,1); //TODO modify to 15
+      console.log(fake);
+      merged = [... real, ... fake]
+      CommonController.shuffleArray(merged);
+      res.status(200).send(merged);
     }catch(e){
       res.status(500).json({error: 'Internal server error'});
-    }*/
+    }
   }
   
   /**
@@ -46,6 +53,7 @@ export class ImagesController {
    * @param res express Response object
    */
   async create(req: Request, res: Response): Promise<void> {
+    // TODO: decidere se inserire a mano o meno 
     res.status(405).json({ error: 'Method not allowed' });  
   }
   
@@ -58,8 +66,8 @@ export class ImagesController {
   async getById(req: Request, res: Response): Promise<void> {
     const imagesService = ImagesService.getInstance();
     try{
-      const type = await imagesService.getById(req.params.id);
-      res.status(200).send(type);
+      const image = await imagesService.getById(req.params.id);
+      res.status(200).send(image);
     }catch(e){
       res.status(500).json({error: 'Internal server error'});
     }
