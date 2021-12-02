@@ -21,3 +21,6 @@ doc
 # test coverage directories
 coverage
 .nyc_output
+
+# css
+css/**
