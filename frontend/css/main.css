@@ -4,15 +4,6 @@ h1 {
     display: flex;
     color: red; }
 
-div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 50%;
-  height: 100%;
-  background-color: #c4c4c4; }
-
 img {
   width: 10cm;
   height: 10cm; }
