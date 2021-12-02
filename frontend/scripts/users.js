@@ -1,7 +1,7 @@
 (function ($){
   $(document).ready(function() {
     $('#formNickname').submit(function (event) {
-      userData = {username: $('#nickname').val()}
+      let userData = {username: $('#nickname').val()}
       console.log(JSON.stringify(userData));
       fetch('../api/users/', {
         method: 'POST',
@@ -19,7 +19,7 @@
       })
       .then((data) => {
         console.log(data);
-        $(location).prop('href','pages/familiarization.html?' + data);
+        $(location).prop('href','pages/test.html?' + data); //TODO change with familiarization
       })
       event.preventDefault();
     });
