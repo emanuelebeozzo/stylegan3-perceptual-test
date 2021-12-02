@@ -4,9 +4,19 @@ h1 {
     display: flex;
     color: red; }
 
+tbody {
+  display: table-row-group;
+  vertical-align: middle; }
+
 img {
   width: 10cm;
   height: 10cm; }
+
+h3 {
+  text-align: center; }
+
+th {
+  width: 11.1%; }
 
 .center {
   display: block;
