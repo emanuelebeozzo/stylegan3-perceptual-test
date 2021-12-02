@@ -63,7 +63,7 @@ export class ImagesService {
    */
   async getById(resourceId: string): Promise<any>{
     //console.log(resourceId)
-    const image = await this.imagesModel.imagesCollection.findById(resourceId).select(['-_id','-type']);
+    const image = await this.imagesModel.imagesCollection.findById(resourceId).select(['-_id','-type', '-evaluations_list']);
     //console.log(image)
     return image;
     
