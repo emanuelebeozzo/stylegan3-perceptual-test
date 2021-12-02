@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 /**
  * Exposing public folder
  */
-app.use('/', express.static('public'));
+app.use('/', express.static('frontend'));
 app.use('/img', express.static('img')); //Nota: le immagini sono accessibili così http://localhost:8080/img/ffhq/0.png 
 
 /**
