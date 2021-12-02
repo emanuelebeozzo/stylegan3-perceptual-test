@@ -10,13 +10,13 @@
     <script src="../scripts/slider.js"></script>
     <script src="../scripts/local.js"></script>
 </head>
-<body>
+<body onload="firstLoad();">
     <button class="btn btn-primary" onclick="timeoutImage()" id="myBtn" title="Go to top">Top</button>
     <div class="container">
         <img class="center rounded" id="image">
-        <p>
+        <h3>
             This image is synthetic.
-        </p>
+        </h3>
         <table class="table table-borderless" style="text-align: center;">            
             <tbody>
                 <tr>
@@ -41,7 +41,7 @@
             <input type="range" min="1" max="7" value="4" class="slider" id="myRange">
         </div>
         <br>
-        <button class="btn btn-primary btn-lg btn-block" type="submit" onclick="nextImage();">Next</button>
+        <button class="btn btn-primary btn-lg btn-block" id="nextButton" type="submit" onclick="nextImage();">Next</button>
     </div>
     <div>
 </body>
