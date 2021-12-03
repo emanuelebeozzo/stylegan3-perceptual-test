@@ -62,7 +62,7 @@ export class ImagesController {
     try{
       req.body._id = req.params.id;
       const evalId = await imagesService.createEval(req.body);
-      res.status(201).send(evalId);
+      res.status(201).location('api/images/'+ req.body._id +'evaluations/' + evalId).send(evalId);
     }catch(e){
       res.status(500).json({error: 'Internal server error'});
     }

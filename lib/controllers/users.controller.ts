@@ -27,7 +27,7 @@ export class UsersController {
     const usersService = UsersService.getInstance();
     try{
       const userId = await usersService.create(req.body);
-      res.status(201).send(userId);
+      res.status(201).location('api/users/' + userId).send(userId);
     }catch(e){
       res.status(500).json({error: 'Internal server error'});
     }

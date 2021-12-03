@@ -4,22 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>amogus</title>
+    <title>Familiarization</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/main.css">    
     <script src="../scripts/slider.js"></script>
     <script src="../scripts/local.js"></script>
 </head>
-<body>
-    <div class="center">
-        <img class="center" src="../lol.jpg" >
-        <p>
+<body onload="firstLoad();">
+    <button class="btn btn-primary" onclick="timeoutImage()" id="myBtn" title="Go to top">Top</button>
+    <div class="container">
+        <img class="center rounded" id="image">
+        <h3>
             This image is synthetic.
-        </p>
-        <div class="slidercontainer">
+        </h3>
+        <table class="table table-borderless" style="text-align: center;">            
+            <tbody>
+                <tr>
+                    <th colspan="3">Completely disagree</th>
+                    <th colspan="3">Unsure</th>
+                    <th colspan="3">Completely agree</th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                    <th>6</th>
+                    <th>7</th>
+                    <th></th>
+                </tr>
+            </tbody>
+        </table>
+        <div class="center slidercontainer">
             <input type="range" min="1" max="7" value="4" class="slider" id="myRange">
         </div>
-        <button type="submit" onclick="sendData();">Next</button>
+        <br>
+        <button class="btn btn-primary btn-lg btn-block" id="nextButton" type="submit" onclick="nextImage();">Next</button>
     </div>
+    <div>
 </body>
 </html>

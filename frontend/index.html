@@ -6,8 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>amogus</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/main.css">    
-    <script src="scripts/local.js"></script>
+    <link rel="stylesheet" href="css/main.css">  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  
+    <script src="scripts/users.js"></script>
 </head>
 <body>
     <h1>Can you spot synthetic faces?</h1>
@@ -27,11 +28,11 @@
     </div> 
     <div>
         <h3>Choose a nickname</h3>
-        <form action="pages/familiarization.html" method="post">
+        <form id="formNickname" action="#" method="post">
             <div class="form-group">
                 <label for="nickname">Choose a nickname</label>
                 <input type="text" class="form-control" id="nickname" name="nickname" placeholder="Enter a nickname" minlength="3" maxlength="20" required>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button class="btn btn-primary">Submit</button>
             </div>
         </form>
     </div>
