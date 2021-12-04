@@ -48,6 +48,7 @@
         if(index == 30){
           $('#nextButton').html('Submit the test');
         }
+        index++;
         $('#nextButton').attr('disabled', true); // TODO: evaluate if it is useful
         setTimeout(obscureImage, 3000);
       })
@@ -95,3 +96,4 @@
   }
 
 }) (jQuery);
+
