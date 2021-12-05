@@ -7,41 +7,59 @@
     <title>Familiarization</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/main.css">    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  
     <script src="../scripts/slider.js"></script>
     <script src="../scripts/local.js"></script>
+    <script src="../scripts/getImages.js"></script>
 </head>
-<body onload="firstLoad();">
-    <button class="btn btn-primary" onclick="timeoutImage()" id="myBtn" title="Go to top">Top</button>
+<body>
+    <h1>Familiarization</h1>
     <div class="container">
         <img class="center rounded" id="image">
         <h3>
             This image is synthetic.
         </h3>
-        <table class="table table-borderless" style="text-align: center;">            
+        <table class="table table-borderless">            
             <tbody>
                 <tr>
-                    <th colspan="3">Completely disagree</th>
-                    <th colspan="3">Unsure</th>
-                    <th colspan="3">Completely agree</th>
+                    <th colspan="2" style="text-align: left;">Completely<br>disagree</th>
+                    <th colspan="3" style="text-align: center;">Unsure</th>
+                    <th colspan="2" style="text-align: right;">Completely<br>agree</th>
                 </tr>
                 <tr>
-                    <th></th>
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
-                    <th>4</th>
-                    <th>5</th>
-                    <th>6</th>
-                    <th>7</th>
-                    <th></th>
+                    <td style="text-align: left;">1</td>
+                    <td></td>
+                    <td></td>
+                    <td>4</td>
+                    <td></td>
+                    <td></td>
+                    <td style="text-align: right;">7</td>
                 </tr>
             </tbody>
         </table>
         <div class="center slidercontainer">
-            <input type="range" min="1" max="7" value="4" class="slider" id="myRange">
+            <input type="range" list="tickmarks" min="1" max="7" value="4" class="slider" id="myRange" oninput="this.nextElementSibling.value = this.value">
+            <output>4</output> 
+            <div class="range-slider">
+                <input class="range-slider__range" type="range" value="4" min="1" max="7" oninput="rangeSlider()">
+                <span class="range-slider__value">4</span>
+              </div>
+            <!-- <div class="range-wrap">
+                <div class="range-value" id="rangeV"></div>
+                <input id="range" type="range" min="200" max="800" value="200" step="1">
+              </div> -->
         </div>
+        <!-- <div class="range-slider">
+            <input class="range-slider__range" type="range" value="100" min="0" max="500" oninput="rangeSlider()">
+            <span class="range-slider__value">0</span>
+          </div>
+
+          <div class="range-wrap">
+            <div class="range-value" id="rangeV"></div>
+            <input id="range" type="range" min="200" max="800" value="200" step="1">
+          </div> -->
         <br>
-        <button class="btn btn-primary btn-lg btn-block" id="nextButton" type="submit" onclick="nextImage();">Next</button>
+        <button class="btn btn-primary btn-lg btn-block" id="nextButton" type="submit">Next</button>
     </div>
     <div>
 </body>

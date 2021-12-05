@@ -19,7 +19,7 @@
       })
       .then((data) => {
         console.log(data);
-        $(location).prop('href','pages/test.html?' + data); //TODO change with familiarization
+        $(location).prop('href','pages/familiarization.html?' + data); //TODO change with familiarization
       })
       event.preventDefault();
     });
