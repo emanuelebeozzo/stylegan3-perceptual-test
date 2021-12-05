@@ -1,3 +1,5 @@
+import {obscureImage, getUserId } from './common.js';
+
 (function ($){
   let imagesId = [];
   let index = 0;
@@ -17,14 +19,16 @@
     .then((data) => {
       console.log(data);
       imagesId = data
-      getUserId();
+      userId = getUserId();
       loadNewImage();
     })
   });
 
   $(document).ready(function() {
     $('#nextButton').click(function () {
+      console.log(index);
       sendEval();
+      index++;
       $('#myRange').val(4);
       loadNewImage();
     });
@@ -32,6 +36,7 @@
 
   function loadNewImage(){
     if(index < 30 && imagesId.length == 30) {
+      console.log("Carico img "+ index)
       fetch('../api/images/'+imagesId[index], {
         method: 'GET'
       })  
@@ -45,10 +50,9 @@
       .then((data) => {
         console.log(data);
         $('#image').attr("src",data.path);
-        if(index == 30){
+        if(index == 29){
           $('#nextButton').html('Submit the test');
         }
-        index++;
         $('#nextButton').attr('disabled', true); // TODO: evaluate if it is useful
         setTimeout(obscureImage, 3000);
       })
@@ -57,22 +61,11 @@
     }
   }
 
-  function obscureImage(){
-    $('#image').attr("src","../../img/mmlab.png");
-    $('#nextButton').attr('disabled', false); // TODO: evaluate if it is useful
-  }
-
-  function getUserId(){
-    let address = $(location).prop('href');
-    userId = address.split("?")[1];
-    console.log("Userid: " + userId);
-  }
-
   function sendEval(){
-    let eval = $('#myRange').val();
+    let evaluationInput = $('#myRange').val();
     let userData = {
       user_id: userId,
-      evaluation: eval
+      evaluation: evaluationInput
     }
     console.log(userData);
     fetch('../api/images/'+imagesId[index]+'/evaluations/', {
@@ -84,7 +77,6 @@
     })   
     .then((resp) => {
       if(resp.ok){
-        index++;
         return resp.json();
       }else{
         console.log("Error 500 or 405");

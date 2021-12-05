@@ -4,39 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Test</title>
+    <title>Trail</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/main.css">  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  
     <script src="../scripts/slider.js"></script>
-    <script src="../scripts/getImages.js"></script>
+    <script type="module" src="../scripts/getImages.js"></script>
 </head>
 <body>
+    <h1>Trial</h1>
     <div class="container">
         <img class="center" id="image">
         <h3>
             This image is synthetic:
         </h3>
-        <table class="table table-borderless" style="text-align: center;">            
+        <table class="table table-borderless">            
             <tbody>
                 <tr>
-                    <th style="text-align:left;" colspan="3">Completely disagree</th>
-                    <th colspan="3">Unsure</th>
-                    <th style="text-align:right;" colspan="3">Completely agree</th>
+                    <th colspan="2" style="text-align: left;">Completely<br>disagree</th>
+                    <th colspan="3" style="text-align: center;">Unsure</th>
+                    <th colspan="2" style="text-align: right;">Completely<br>agree</th>
                 </tr>
                 <tr>
-                    <th style="text-align:left;">1</th>
-                    <th>2</th>
-                    <th>3</th>
-                    <th>4</th>
-                    <th>5</th>
-                    <th>6</th>
-                    <th style="text-align:right;">7</th>
+                    <td style="text-align: left;">1</td>
+                    <td></td>
+                    <td></td>
+                    <td>4</td>
+                    <td></td>
+                    <td></td>
+                    <td style="text-align: right;">7</td>
                 </tr>
             </tbody>
         </table>
         <div class="center slidercontainer">
-            <input type="range" min="1" max="7" value="4" class="slider" id="myRange">
+            <input type="range" list="tickmarks" min="1" max="7" value="4" class="slider" id="myRange" oninput="this.nextElementSibling.value = this.value">
+            <output>4</output> 
         </div>
         <br>
         <button class="btn btn-primary btn-lg btn-block" id="nextButton" type="submit">Next</button>
