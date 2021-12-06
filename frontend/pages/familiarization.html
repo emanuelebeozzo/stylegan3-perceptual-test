@@ -37,7 +37,7 @@
                 </tr>
             </tbody>
         </table>
-        <div class="center slidercontainer">
+        <div class="center slidercontainer range" style="--step:1; --min:1; --max:7">
             <!-- <input type="range" list="tickmarks" min="1" max="7" value="4" class="slider" id="sliderInput" oninput="this.nextElementSibling.value = this.value"> -->
             <!-- <output>4</output>  -->
             
@@ -46,6 +46,15 @@
 
             <input class="range-slider__range" id="sliderInput" type="range" min="1" max="7" value="4">
             <span class="range-slider__value" id="bubble"></span>
+            <!-- <datalist id="my-datalist" style="--list-length: 8;">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+            </datalist> -->
 
             <!-- <div class="range-slider">
                 <input class="range-slider__range" type="range" value="4" min="1" max="7" oninput="rangeSlider()" >
