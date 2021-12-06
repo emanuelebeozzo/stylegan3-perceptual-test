@@ -126,5 +126,4 @@ var moveBubble = function(e)
     oldSliderVal = sliderVal;
 
     document.getElementById('selectedValue').innerHTML = "<h4>Selected value: "+sliderVal+"</h4>";
-    document.getElementById('selectedValue').style.textAlign = "center";
 }
