@@ -1,8 +1,14 @@
+body {
+  background-color: #d0e6fc; }
+
+h4 {
+  text-align: center;
+  margin-bottom: 20px; }
+
 h1 {
-  text-align: center; }
-  h1 h2 {
-    display: flex;
-    color: red; }
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 40px; }
 
 button {
   margin-top: 20px; }
@@ -17,9 +23,12 @@ td {
   width: 14.28%; }
 
 img {
-  margin-top: 30px;
   width: 10cm;
   height: 10cm; }
+
+#image {
+  margin-top: 50px;
+  margin-bottom: 50px; }
 
 figcaption {
   text-align: center;

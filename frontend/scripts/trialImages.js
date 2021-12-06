@@ -55,6 +55,7 @@ import {obscureImage, getUserId } from './common.js';
           $('#nextButton').html('Submit the test');
         }
         $('#nextButton').attr('disabled', true); // TODO: evaluate if it is useful
+        $('#selectedValue').html("<h4>Selected value: 4</h4>")
         setTimeout(obscureImage, 3000);
       })
     } else if (index == 30){
