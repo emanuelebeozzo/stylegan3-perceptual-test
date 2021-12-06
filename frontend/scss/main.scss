@@ -401,7 +401,7 @@ input[type=range] + datalist option:last-child {
 
 .range {
   --ticksThickness: 2px;
-  --ticksHeight: 110%;
+  --ticksHeight: 130%;
   --ticksColor: silver;
   
   display: inline-block;
@@ -409,6 +409,7 @@ input[type=range] + datalist option:last-child {
   background: linear-gradient(to right, var(--ticksColor) var(--ticksThickness), transparent 1px) repeat-x;
   background-size: calc(100%/((var(--max) - var(--min)) / var(--step)) - .1%) var(--ticksHeight);
   background-position: 0 bottom;
+  //background-position: top;
   position: relative;
   width: 100%;
 }
@@ -436,4 +437,5 @@ input[type=range] + datalist option:last-child {
 .range > input {
   width: 100%;
   margin: 0 -1px;
+  margin-top: 10px;
 }

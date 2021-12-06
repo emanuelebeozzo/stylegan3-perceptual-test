@@ -336,7 +336,7 @@ input[type=range] + datalist option:last-child {
 /*************************************************************************************************/
 .range {
   --ticksThickness: 2px;
-  --ticksHeight: 110%;
+  --ticksHeight: 130%;
   --ticksColor: silver;
   display: inline-block;
   background: silver;
@@ -363,4 +363,5 @@ input[type=range] + datalist option:last-child {
 
 .range > input {
   width: 100%;
-  margin: 0 -1px; }
+  margin: 0 -1px;
+  margin-top: 10px; }
