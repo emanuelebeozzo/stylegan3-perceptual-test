@@ -1,4 +1,4 @@
-var slider = document.getElementById("myRange");
+var slider = document.getElementById("sliderInput");
 var output = document.getElementById("demo");
 output.innerHTML = slider.value; // Display the default slider value
 

@@ -13,7 +13,7 @@ import {obscureImage, getUserId } from './common.js';
   $(document).ready(function() {
     $('#nextButton').click(function () {
       //sendEval();
-      $('#myRange').val(4);
+      $('#sliderInput').val(4);
       loadNewImage();
     });
   });

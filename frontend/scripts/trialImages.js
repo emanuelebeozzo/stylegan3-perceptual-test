@@ -29,7 +29,7 @@ import {obscureImage, getUserId } from './common.js';
       console.log(index);
       sendEval();
       index++;
-      $('#myRange').val(4);
+      $('#sliderInput').val(4);
       loadNewImage();
     });
   });
@@ -63,7 +63,7 @@ import {obscureImage, getUserId } from './common.js';
   }
 
   function sendEval(){
-    let evaluationInput = $('#myRange').val();
+    let evaluationInput = $('#sliderInput').val();
     let userData = {
       user_id: userId,
       evaluation: evaluationInput

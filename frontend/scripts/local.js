@@ -22,10 +22,10 @@ function timeoutImage(){
 
 //function to send data and change image
 function nextImage(){
-    sendData(document.getElementById("myRange").value);
+    sendData(document.getElementById("sliderInput").value);
     index=tmp;
     index++;
-    document.getElementById("myRange").value=4;
+    document.getElementById("sliderInput").value=4;
     disableButton();
     timeoutImage();
 }
@@ -117,9 +117,9 @@ var hide = function()
 
 var moveBubble = function(e)
 {
-    if(oldSliderVal !== '0' && oldSliderVal !== '100')
+    if(oldSliderVal !== '1' && oldSliderVal !== '7')
     { 
-        bubble.style.left = e.clientX-(bubble.offsetWidth/2)+'px';        
+        bubble.style.left = e.clientX-(bubble.offsetWidth/2)+'px';       
     }
     var sliderVal = sliderInput.value
     bubble.innerHTML = sliderVal;
