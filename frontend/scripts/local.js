@@ -91,16 +91,37 @@ range.addEventListener('input', setValue); */
 
 ///////////////////////////////////////////////////////////////////////////////
 
-const
-range = document.getElementById('range'),
-rangeV = document.getElementById('rangeV'),
-setValue = ()=>{
-const
-    newValue = Number( (range.value - range.min) * 100 / (range.max - range.min) ),
-    newPosition = 10 - (newValue * 0.2);
-rangeV.innerHTML = `<span>${range.value}</span>`;
-rangeV.style.left = `calc(${newValue}% + (${newPosition}px))`;
-};
-document.addEventListener("DOMContentLoaded", setValue);
-range.addEventListener('input', setValue);
-  
+
+var oldSliderVal = -1;
+
+function init()
+{
+    var bubble = document.getElementById('bubble');
+    var sliderInput = document.getElementById('sliderInput');
+
+    sliderInput.addEventListener('mousemove', moveBubble);
+    sliderInput.addEventListener('mousedown', show);
+    sliderInput.addEventListener('mouseup', hide);
+}   
+
+var show = function(e)
+{
+    bubble.style.left = e.clientX-(bubble.offsetWidth/2)+'px';  
+    bubble.style.opacity = '1';
+}
+
+var hide = function()
+{
+    bubble.style.opacity = '0';
+}
+
+var moveBubble = function(e)
+{
+    if(oldSliderVal !== '0' && oldSliderVal !== '100')
+    { 
+        bubble.style.left = e.clientX-(bubble.offsetWidth/2)+'px';        
+    }
+    var sliderVal = sliderInput.value
+    bubble.innerHTML = sliderVal;
+    oldSliderVal = sliderVal;
+}

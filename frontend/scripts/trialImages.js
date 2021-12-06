@@ -49,6 +49,7 @@ import {obscureImage, getUserId } from './common.js';
       })
       .then((data) => {
         console.log(data);
+        $('#progressImage').html("Image: "+(index+1)+"/30")
         $('#image').attr("src",data.path);
         if(index == 29){
           $('#nextButton').html('Submit the test');
