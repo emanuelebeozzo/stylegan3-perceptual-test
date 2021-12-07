@@ -1,12 +1,14 @@
-import exp from 'constants';
+import dotenv from 'dotenv';
 import express, { Application, NextFunction, Request, Response } from 'express';
 import { CommonRoutes } from './common/routes/common.routes'
 import { ImagesRoutes } from './routes/images.route';
 import { UsersRoutes } from './routes/users.route';
 
+dotenv.config();
+
 //Get the port
 /**Port on which the server will listen onto */
-const port = 8080;
+const port = process.env.PORT;
 
 /**Express instance */
 const app: Application = express();
