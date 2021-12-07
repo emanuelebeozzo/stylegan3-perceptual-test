@@ -4,7 +4,7 @@
   "description": "Basic interface to show images and allow to evaluate if they are synthetic or real",
   "main": "frontend/index.html",
   "scripts": {
-    "start": "npm run build && node dist/app.js",
+    "start": "node dist/app.js",
     "dev": "nodemon lib/app.ts",
     "build": "tsc -p .",
     "clean": "rm -r dist/* || true",
