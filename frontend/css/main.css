@@ -1,9 +1,17 @@
+body {
+  background-color: #d0e6fc; }
+
+h4 {
+  text-align: center;
+  margin-bottom: 20px; }
+
 h1 {
-  margin: auto;
-  text-align: center; }
-  h1 h2 {
-    display: flex;
-    color: red; }
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 40px; }
+
+button {
+  margin-top: 20px; }
 
 tbody {
   display: table-row-group;
@@ -15,10 +23,17 @@ td {
   width: 14.28%; }
 
 img {
-  margin-top: 50px;
-  margin-bottom: 50px;
   width: 10cm;
   height: 10cm; }
+
+#image {
+  margin-top: 50px;
+  margin-bottom: 50px; }
+
+figcaption {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px; }
 
 output {
   text-align: center; }
@@ -33,10 +48,18 @@ table {
   text-align: center;
   width: 100%; }
 
+#bubble {
+  position: absolute;
+  top: 600px;
+  pointer-events: none;
+  opacity: 0; }
+
 .center {
   display: block;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px; }
 
 /*********************************************************************************************************************************/
 .slidecontainer {
@@ -224,23 +247,16 @@ input[type=range]:active + output {
 *, *:before, *:after {
   box-sizing: border-box; }
 
-body {
-  font-family: sans-serif;
-  padding: 60px 20px; }
-  @media (min-width: 600px) {
-    body {
-      padding: 60px; } }
-
 .range-slider {
-  margin: 60px 0 0 0%; }
+  margin: 10px 0 0 0%; }
 
 .range-slider {
   width: 100%; }
 
 .range-slider__range {
   -webkit-appearance: none;
-  width: calc(100% - (73px));
-  height: 10px;
+  width: 100%;
+  height: 20px;
   border-radius: 5px;
   background: #d7dcdf;
   outline: none;
@@ -248,30 +264,30 @@ body {
   margin: 0; }
   .range-slider__range::-webkit-slider-thumb {
     appearance: none;
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     background: #2c3e50;
     cursor: pointer;
     transition: background .15s ease-in-out; }
     .range-slider__range::-webkit-slider-thumb:hover {
-      background: #1abc9c; }
+      background: #e03e22; }
   .range-slider__range:active::-webkit-slider-thumb {
-    background: #1abc9c; }
+    background: #e03e22; }
   .range-slider__range::-moz-range-thumb {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     border: 0;
     border-radius: 50%;
     background: #2c3e50;
     cursor: pointer;
     transition: background .15s ease-in-out; }
     .range-slider__range::-moz-range-thumb:hover {
-      background: #1abc9c; }
+      background: #e03e22; }
   .range-slider__range:active::-moz-range-thumb {
-    background: #1abc9c; }
+    background: #e03e22; }
   .range-slider__range:focus::-webkit-slider-thumb {
-    box-shadow: 0 0 0 3px #fff, 0 0 0 6px #1abc9c; }
+    box-shadow: 0 0 0 3px #fff, 0 0 0 6px #e03e22; }
 
 .range-slider__value {
   display: inline-block;
@@ -280,14 +296,12 @@ body {
   color: #fff;
   line-height: 20px;
   text-align: center;
-  border-radius: 3px;
+  border-radius: 10px;
   background: #2c3e50;
-  padding: 5px 10px;
-  margin-left: 8px; }
+  padding: 5px 10px; }
   .range-slider__value:after {
     position: absolute;
     top: 8px;
-    left: -7px;
     width: 0;
     height: 0;
     border-top: 7px solid transparent;
@@ -304,66 +318,59 @@ input::-moz-focus-outer {
   border: 0; }
 
 /********************************************************************************************/
-/* input[type=range] {
-  -webkit-appearance: none;
-  margin: 20px 0;
+/* 
+input[type=range] {
   width: 100%;
+  max-width: 100%;
+  margin-left: 0;
 }
-input[type=range]:focus {
-  outline: none;
-}
-input[type=range]::-webkit-slider-runnable-track {
-  width: 100%;
-  height: 4px;
-  cursor: pointer;
-  background: #03a9f4;
-  border-radius: 25px;
-}
-input[type=range]::-webkit-slider-thumb {
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 0 4px 0 rgba(0,0,0, 1);
-  cursor: pointer;
-  -webkit-appearance: none;
-  margin-top: -8px;
-}
-input[type=range]:focus::-webkit-slider-runnable-track {
-  background: #03a9f4;
-}
-.range-wrap{
-  width: 500px;
-  position: relative;
-}
-.range-value{
-  position: absolute;
-  top: -50%;
-}
-.range-value span{
-  width: 30px;
-  height: 24px;
-  line-height: 24px;
-  text-align: center;
-  background: #03a9f4;
-  color: #fff;
-  font-size: 12px;
+
+input[type=range] + datalist {
   display: block;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, 0);
-  border-radius: 6px;
+  margin-top: -4px;
 }
-.range-value span:before{
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-top: 10px solid #03a9f4;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  margin-top: -1px;
+input[type=range] + datalist option {
+  display: inline-block;
+  width: calc((100% - 12px) / (var(--list-length) - 1));
+  text-align: center;
+}
+input[type=range] + datalist option:first-child {
+  width: calc((100% - 12px) / ((var(--list-length) - 1) * 2) + 6px);
+  text-align: left;
+}
+input[type=range] + datalist option:last-child {
+  width: calc((100% - 12px) / ((var(--list-length) - 1) * 2) + 6px);
+  text-align: right;
 } */
+/*************************************************************************************************/
+.range {
+  --ticksThickness: 2px;
+  --ticksHeight: 130%;
+  --ticksColor: silver;
+  display: inline-block;
+  background: silver;
+  background: linear-gradient(to right, var(--ticksColor) var(--ticksThickness), transparent 1px) repeat-x;
+  background-size: calc(100%/((var(--max) - var(--min)) / var(--step)) - .1%) var(--ticksHeight);
+  background-position: 0 bottom;
+  position: relative;
+  width: 100%; }
+
+.range::before, .range::after {
+  font: 18px monospace;
+  content: counter(x);
+  position: absolute;
+  bottom: -2ch; }
+
+.range::before {
+  counter-reset: x var(--min);
+  transform: translateX(-60%); }
+
+.range::after {
+  counter-reset: x var(--max);
+  right: 0;
+  transform: translateX(20%); }
+
+.range > input {
+  width: 100%;
+  margin: 0 -1px;
+  margin-top: 10px; }

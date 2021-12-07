@@ -13,7 +13,7 @@ import {obscureImage, getUserId } from './common.js';
   $(document).ready(function() {
     $('#nextButton').click(function () {
       //sendEval();
-      $('#myRange').val(4);
+      $('#sliderInput').val(4);
       loadNewImage();
     });
   });
@@ -27,6 +27,7 @@ import {obscureImage, getUserId } from './common.js';
       }
       index++;
       $('#nextButton').attr('disabled', true); // TODO: evaluate if it is useful
+      $('#selectedValue').html("<h4>Selected value: 4</h4>")
       setTimeout(obscureImage, 3000);
     } else if (index == 4){
       $(location).prop('href','test.html?' + userId);
