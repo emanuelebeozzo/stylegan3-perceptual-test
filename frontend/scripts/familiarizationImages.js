@@ -1,38 +1,12 @@
-import {obscureImage, getUserId } from './common.js';
+import {obscureImage } from './common.js';
 
 (function ($){
-  let imagesPaths = ["../../img/familiarization/0.png", "../../img/familiarization/1.png", "../../img/familiarization/2.png",  "../../img/familiarization/3.png"];
-  let index = 0;
-  let userId = "";
+  let imagePath = "../../img/familiarization/test.png";
 
   $(document).ready(function() {
-      userId = getUserId();
-      loadNewImage();
+    $('#image').attr("src", imagePath);
+    setTimeout(obscureImage, 3000);
   });
-
-  $(document).ready(function() {
-    $('#nextButton').click(function () {
-      //sendEval();
-      $('#sliderInput').val(4);
-      loadNewImage();
-    });
-  });
-
-  function loadNewImage(){
-    if(index < 4 && imagesPaths.length == 4) {
-      console.log(imagesPaths[index])
-      $('#image').attr("src", imagesPaths[index]);
-      if(index == 3){
-        $('#nextButton').html('End the familiarization and start the trial');
-      }
-      index++;
-      $('#nextButton').attr('disabled', true); // TODO: evaluate if it is useful
-      $('#selectedValue').html("<h4>Selected value: 4</h4>")
-      setTimeout(obscureImage, 3000);
-    } else if (index == 4){
-      $(location).prop('href','test.html?' + userId);
-    }
-  }
 
 }) (jQuery);
 

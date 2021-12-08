@@ -90,5 +90,12 @@ export class UsersRoutes extends CommonRoutes implements ConfigureRoutes {
     this.app.delete('/api/users',[
       usersController.deleteAll
     ]);
+
+    /** 
+     * 
+    */
+     this.app.get('/api/users/:id/evaluations', [
+      usersController.getEval
+    ]);
   }
 }

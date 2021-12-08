@@ -4,6 +4,7 @@ import {obscureImage, getUserId } from './common.js';
   let imagesId = [];
   let index = 0;
   let userId = "";
+  let timer;
 
   $(document).ready(function() {
     fetch('../api/images', {
@@ -49,14 +50,16 @@ import {obscureImage, getUserId } from './common.js';
       })
       .then((data) => {
         console.log(data);
+        clearTimeout(timer);
+        $('#nextButton').attr('disabled', true);
         $('#progressImage').html("Image: "+(index+1)+"/30")
         $('#image').attr("src",data.path);
         if(index == 29){
           $('#nextButton').html('Submit the test');
         }
-        $('#nextButton').attr('disabled', true); // TODO: evaluate if it is useful
-        $('#selectedValue').html("<h4>Selected value: 4</h4>")
-        setTimeout(obscureImage, 3000);
+        $('#selectedValue').html("<h4>Selected value: 4</h4>"); 
+        $('#nextButton').attr('disabled', false);
+        timer = setTimeout(obscureImage, 3000);
       })
     } else if (index == 30){
       $(location).prop('href','conclusion.html');

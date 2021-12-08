@@ -23,7 +23,8 @@ export class UsersModel {
    */
   userSchema: Schema = new this.dbSchema({
     username: {
-      type: String,
+      //type: String,
+      type: Number,
       required: true
     }
    });

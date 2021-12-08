@@ -1,8 +1,8 @@
 export {obscureImage, getUserId};
 
 function obscureImage(){
-  $('#image').attr("src","../../img/mmlab.png");
-  $('#nextButton').attr('disabled', false); // TODO: evaluate if it is useful
+  $('#image').attr("src","../../img/white.png");
+  //$('#nextButton').attr('disabled', false); // TODO: evaluate if it is useful
 }
 
 function getUserId(){
