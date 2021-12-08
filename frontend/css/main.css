@@ -40,7 +40,8 @@ h3 {
   text-align: center; }
 
 th {
-  width: 11.1%; }
+  width: 11.1%;
+  padding-bottom: 20px; }
 
 table {
   text-align: center;
@@ -432,9 +433,8 @@ wrapper {
   background-color: #f06c14;
   padding: 1rem;
   color: #fff;
-  width: auto;
-  margin: 0;
-  white-space: nowrap; }
+  width: 5rem;
+  margin: 0; }
 
 .rangeslider__value-bubble::before {
   content: "";
@@ -464,11 +464,13 @@ wrapper {
 
 .rangeslider {
   background: #e6e6e6;
-  position: relative; }
+  position: relative;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto; }
 
 .rangeslider--horizontal {
-  height: 20px;
-  width: 100%; }
+  height: 20px; }
 
 .rangeslider--vertical {
   width: 20px;

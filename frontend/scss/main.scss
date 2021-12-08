@@ -61,10 +61,13 @@ h3{
 
 th{
   width: 11.1%;
+  padding-bottom: 20px;
 }
 
 table{
+  //margin-left: -55px;
   text-align: center;
+  //width: 110%;
   width: 100%;
 }
 
@@ -515,9 +518,8 @@ wrapper {
   background-color: #f06c14;
   padding: 1rem;
   color: #fff;
-  width: auto;
+  width: 5rem;
   margin: 0;
-  white-space: nowrap;
 }
 .rangeslider__value-bubble::before {
   content: "";
@@ -550,11 +552,14 @@ wrapper {
 .rangeslider {
   background: #e6e6e6;
   position: relative;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .rangeslider--horizontal {
   height: 20px;
-  width: 100%;
+  //width: 100%;
 }
 
 .rangeslider--vertical {
