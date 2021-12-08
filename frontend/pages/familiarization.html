@@ -7,9 +7,10 @@
     <title>Familiarization</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/main.css">    
+    <!-- <link rel='stylesheet' href='https://andreruffert.github.io/rangeslider.js/assets/rangeslider.js/dist/rangeslider.css'> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  
-    <script src="../scripts/slider.js"></script>
     <script src="../scripts/local.js"></script>
+    <script src='https://andreruffert.github.io/rangeslider.js/assets/rangeslider.js/dist/rangeslider.min.js'></script>
     <script type="module" src="../scripts/familiarizationImages.js"></script>
 </head>
 <body onload="init()">
@@ -30,14 +31,15 @@
                     <td style="text-align: left;">1</td>
                     <td></td>
                     <td></td>
-                    <td>4</td>
+                    <td style="text-align: center;">4</td>
                     <td></td>
                     <td></td>
                     <td style="text-align: right;">7</td>
                 </tr>
             </tbody>
         </table>
-        <div class="center slidercontainer range" style="--step:1; --min:1; --max:7">
+        <br>
+        <div class="center slidercontainer range" >
             <!-- <input type="range" list="tickmarks" min="1" max="7" value="4" class="slider" id="sliderInput" oninput="this.nextElementSibling.value = this.value"> -->
             <!-- <output>4</output>  -->
             
@@ -45,6 +47,7 @@
             <div id="bubble" style="position: absolute; top: 500px; width: 20px; height:20px; background-color: red;pointer-events: none; opacity: 0;"></div> -->
 
             <input class="range-slider__range" id="sliderInput" type="range" min="1" max="7" value="4">
+            <script src="../scripts/slider.js"></script>
             
             <!-- <datalist id="my-datalist" style="--list-length: 8;">
                 <option>1</option>
@@ -61,11 +64,9 @@
                 <span class="range-slider__value">4</span>
             </div> -->
         </div>
-        <span class="range-slider__value" id="bubble"></span>
         <br>
-        <div id="selectedValue" style="text-align: center;"><h4>Selected value: 4</h4></div>
         <button class="btn btn-primary btn-lg btn-block" id="nextButton" type="submit">Next</button>
     </div>
-    <div>
+    <div>         
 </body>
 </html>
