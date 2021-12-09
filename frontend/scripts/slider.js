@@ -7,7 +7,7 @@ slider.oninput = function() {
   output.innerHTML = this.value;
 }
  */
-var valueBubble = '<output class="rangeslider__value-bubble" />';
+var valueBubble = '<output class="rangeslider__value-bubble" style="pointer-events: none;"/>';
 
 
 function updateValueBubble(pos, value, context) {
