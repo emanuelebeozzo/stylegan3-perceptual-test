@@ -34,6 +34,8 @@ import {getUserId } from './common.js';
       $('#results').html("Real images evaluated correctly: " + correctReal + "/" + realEval.length + " (" + correctReal/realEval.length*100 + "%) <br>" +
                          "Generated images evaluated correctly: " + correctGen + "/" + genEval.length + " (" + correctGen/genEval.length*100 + "%) <br>" + 
                          "Total images evaluated correctly: " +  (correctGen+correctReal) + "/" + (genEval.length+realEval.length) + " (" + (correctGen+correctReal)/(genEval.length+realEval.length)*100 + "%) <br>");
+      partialChart(correctReal, correctGen);
+      totalChart(correctGen+correctReal,30-(correctGen+correctReal))
     })
 
     fetch('../api/users/' + userId, {
@@ -68,6 +70,56 @@ import {getUserId } from './common.js';
         count++;
     });
     return count;
+  }
+
+  function partialChart(correctReal, correctGen){
+    var xValues = ["Real", "Fake"];
+    var yValues = [correctReal, correctGen, 0];
+    var barColors = ["blue","orange"];
+
+    new Chart("partialChart", {
+    type: "bar",
+    data: {
+        labels: xValues,
+        datasets: [{
+        backgroundColor: barColors,
+        data: yValues
+        }]
+    },
+    options: {
+        legend: {display: false},
+        title: {
+        display: true,
+        text: "Real vs Fake"
+        }
+    }
+    });
+  }
+
+  function totalChart(correct, wrong){
+    var xValues = ["Correct", "Wrong"];
+    var yValues = [correct, wrong];
+    var barColors = [
+    "#1e7145",
+    "#b91d47"
+    ];
+
+    new Chart("totalChart", {
+    type: "doughnut",
+    data: {
+        labels: xValues,
+        datasets: [{
+        backgroundColor: barColors,
+        data: yValues
+        }]
+    },
+    options: {
+        title: {
+        display: true,
+        text: "Total of right images"
+        }
+    }
+    });
   }
 
 }) (jQuery);

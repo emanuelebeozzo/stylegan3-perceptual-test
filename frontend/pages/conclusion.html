@@ -20,57 +20,9 @@
     </div>
 
     <canvas class="center" id="partialChart" style="width:100%;max-width:400px"></canvas>
-    <script>
-        var xValues = ["Real", "Fake"];
-        var yValues = [13, 7, 0];
-        var barColors = ["blue","orange"];
-
-        new Chart("partialChart", {
-        type: "bar",
-        data: {
-            labels: xValues,
-            datasets: [{
-            backgroundColor: barColors,
-            data: yValues
-            }]
-        },
-        options: {
-            legend: {display: false},
-            title: {
-            display: true,
-            text: "Real vs Fake"
-            }
-        }
-        });
-    </script>
     
     <hr>
     <canvas class="center" id="totalChart" style="width:100%;max-width:300px"></canvas>
-    <script>
-    var xValues = ["Correct", "Wrong"];
-    var yValues = [55, 49];
-    var barColors = [
-    "#1e7145",
-    "#b91d47"
-    ];
-
-    new Chart("totalChart", {
-    type: "doughnut",
-    data: {
-        labels: xValues,
-        datasets: [{
-        backgroundColor: barColors,
-        data: yValues
-        }]
-    },
-    options: {
-        title: {
-        display: true,
-        text: "Total of right images"
-        }
-    }
-    });
-    </script>
     <hr>
     <h4>Thank you for the partecipation!</h4>
 </body>
