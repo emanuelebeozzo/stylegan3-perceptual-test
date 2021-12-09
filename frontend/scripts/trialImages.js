@@ -30,7 +30,7 @@ import {obscureImage, getUserId } from './common.js';
       console.log(index);
       sendEval();
       index++;
-      $('#sliderInput').val(4);
+      $('#sliderInput').val(4).change();
       loadNewImage();
     });
   });
@@ -58,6 +58,7 @@ import {obscureImage, getUserId } from './common.js';
         }
         //console.log($('#image').prop("complete"));
         $("#image").one("load", function() {
+          console.log($('#image').prop("complete"));
           clearTimeout(timer);
           $('#nextButton').attr('disabled', false);
           timer = setTimeout(obscureImage, 3000);
