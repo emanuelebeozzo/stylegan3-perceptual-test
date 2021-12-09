@@ -68,9 +68,13 @@ export class UsersService {
 
 
   async getMaxUsername() : Promise<any>{
-    const user = await this.usersModel.usersCollection.findOne().sort('-username').exec();
-    //console.log(user.username);
-    return user.username;
+    const users = await this.usersModel.usersCollection.count();
+    if(users !== 0) {
+      const user = await this.usersModel.usersCollection.findOne().sort('-username').exec();
+      return user.username;
+    } else {
+      return 0;
+    }
   }
 
   async filterList(parameters: any): Promise<any>{

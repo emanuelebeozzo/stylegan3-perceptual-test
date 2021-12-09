@@ -31,7 +31,24 @@ import {getUserId } from './common.js';
       console.log(realEval);
       let correctReal = countCorrectReal();
       let correctGen = countCorrectGen();
-      $('#results').html("Real images evalueted correctly: " + correctReal + "/" + realEval.length);
+      $('#results').html("Real images evaluated correctly: " + correctReal + "/" + realEval.length + " (" + correctReal/realEval.length*100 + "%) <br>" +
+                         "Generated images evaluated correctly: " + correctGen + "/" + genEval.length + " (" + correctGen/genEval.length*100 + "%) <br>" + 
+                         "Total images evaluated correctly: " +  (correctGen+correctReal) + "/" + (genEval.length+realEval.length) + " (" + (correctGen+correctReal)/(genEval.length+realEval.length)*100 + "%) <br>");
+    })
+
+    fetch('../api/users/' + userId, {
+      method: 'GET'
+    })  
+    .then((resp) => {
+      if(resp.ok){
+        return resp.json();
+      }else{
+        console.log("Error 500 or 405");
+      }
+    })
+    .then((data) => {
+      console.log(data);
+      $('#user').html("User " + data.username);
     })
   });
 
@@ -41,6 +58,7 @@ import {getUserId } from './common.js';
       if(item < 4)
         count++;
     });
+    return count;
   }
 
   function countCorrectGen(){
@@ -49,6 +67,7 @@ import {getUserId } from './common.js';
       if(item > 4)
         count++;
     });
+    return count;
   }
 
 }) (jQuery);
