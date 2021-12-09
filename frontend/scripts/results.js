@@ -74,7 +74,7 @@ import {getUserId } from './common.js';
 
   function partialChart(correctReal, correctGen){
     var xValues = ["Real", "Fake"];
-    var yValues = [correctReal, correctGen, 0];
+    var yValues = [correctReal, correctGen];
     var barColors = ["blue","orange"];
 
     new Chart("partialChart", {
@@ -91,6 +91,14 @@ import {getUserId } from './common.js';
         title: {
         display: true,
         text: "Real vs Fake"
+        },
+        scales: {
+          yAxes: [{
+            ticks: {
+              suggestedMax: 15,
+              beginAtZero: true
+            }
+          }]
         }
     }
     });
