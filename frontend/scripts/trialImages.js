@@ -50,15 +50,22 @@ import {obscureImage, getUserId } from './common.js';
       })
       .then((data) => {
         console.log(data);
-        clearTimeout(timer);
         $('#nextButton').attr('disabled', true);
         $('#progressImage').html("Image: "+(index+1)+"/30")
         $('#image').attr("src",data.path);
         if(index == 29){
           $('#nextButton').html('Submit the test');
         }
-        $('#nextButton').attr('disabled', false);
-        timer = setTimeout(obscureImage, 3000);
+        //console.log($('#image').prop("complete"));
+        $("#image").one("load", function() {
+          clearTimeout(timer);
+          $('#nextButton').attr('disabled', false);
+          timer = setTimeout(obscureImage, 3000);
+        }).each(function() {
+          if(this.complete) {
+              $(this).trigger('load');
+          }
+        });
       })
     } else if (index == 30){
       $(location).prop('href','conclusion.html?' + userId);
