@@ -7,6 +7,7 @@
     <title>Results</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/main.css">  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  
     <script type="module" src="../scripts/results.js"></script>
 </head>
@@ -17,7 +18,60 @@
             <p id="results"></p>
         </div>
     </div>
-    <br><br>
+
+    <canvas class="center" id="partialChart" style="width:100%;max-width:400px"></canvas>
+    <script>
+        var xValues = ["Real", "Fake"];
+        var yValues = [13, 7, 0];
+        var barColors = ["blue","orange"];
+
+        new Chart("partialChart", {
+        type: "bar",
+        data: {
+            labels: xValues,
+            datasets: [{
+            backgroundColor: barColors,
+            data: yValues
+            }]
+        },
+        options: {
+            legend: {display: false},
+            title: {
+            display: true,
+            text: "Real vs Fake"
+            }
+        }
+        });
+    </script>
+    
+    <hr>
+    <canvas class="center" id="totalChart" style="width:100%;max-width:300px"></canvas>
+    <script>
+    var xValues = ["Correct", "Wrong"];
+    var yValues = [55, 49];
+    var barColors = [
+    "#1e7145",
+    "#b91d47"
+    ];
+
+    new Chart("totalChart", {
+    type: "doughnut",
+    data: {
+        labels: xValues,
+        datasets: [{
+        backgroundColor: barColors,
+        data: yValues
+        }]
+    },
+    options: {
+        title: {
+        display: true,
+        text: "Total of right images"
+        }
+    }
+    });
+    </script>
+    <hr>
     <h4>Thank you for the partecipation!</h4>
 </body>
 <footer>
