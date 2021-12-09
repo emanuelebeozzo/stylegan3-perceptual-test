@@ -1,13 +1,4 @@
-/* var slider = document.getElementById("sliderInput");
-var output = document.getElementById("demo");
-output.innerHTML = slider.value; // Display the default slider value
-
-// Update the current slider value (each time you drag the slider handle)
-slider.oninput = function() {
-  output.innerHTML = this.value;
-}
- */
-var valueBubble = '<output class="rangeslider__value-bubble" />';
+var valueBubble = '<output class="rangeslider__value-bubble" style="pointer-events: none;"/>';
 
 
 function updateValueBubble(pos, value, context) {
