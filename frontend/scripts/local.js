@@ -71,7 +71,7 @@ range.addEventListener('input', setValue); */
   
   }); */
 
-  function rangeSlider(){
+ /*  function rangeSlider(){
     var slider = $('.range-slider'),
         range = $('.range-slider__range'),
         value = $('.range-slider__value');
@@ -87,11 +87,11 @@ range.addEventListener('input', setValue); */
         $(this).next(value).html(this.value);
       });
     });
-  };
+  }; */
 
 ///////////////////////////////////////////////////////////////////////////////
 
-
+/* 
 var oldSliderVal = -1;
 
 function init()
@@ -126,4 +126,4 @@ var moveBubble = function(e)
     oldSliderVal = sliderVal;
 
     document.getElementById('selectedValue').innerHTML = "<h4>Selected value: "+sliderVal+"</h4>";
-}
+} */
