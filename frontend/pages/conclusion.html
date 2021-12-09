@@ -7,6 +7,7 @@
     <title>Results</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/main.css">  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  
     <script type="module" src="../scripts/results.js"></script>
 </head>
@@ -17,8 +18,15 @@
             <p id="results"></p>
         </div>
     </div>
-    <br><br>
+
+    <canvas class="center" id="partialChart" style="width:100%;max-width:400px"></canvas>
+    
+    <hr>
+    <canvas class="center" id="totalChart" style="width:100%;max-width:300px"></canvas>
+    <hr>
     <h4>Thank you for the partecipation!</h4>
-    <br><br><br><br><br><br><br><br><br><br><br><br><p id='user'></p>
 </body>
+<footer>
+    <div id="user"></div>
+</footer>
 </html>
