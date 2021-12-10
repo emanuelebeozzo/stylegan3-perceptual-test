@@ -61,15 +61,15 @@ export class MongooseService {
    */
   connect(): void{
     if(mongoose.connection.readyState === 0){
-      console.log('MongoDB connection');
+      //console.log('MongoDB connection');
       mongoose.connect(this.uri, this.options).then(() => {
-        console.log('MongoDB is connected');
+        //console.log('MongoDB is connected');
       }).catch( error => {
-        console.log('Failed connection');
-        console.log( error.stack );
+        //console.log('Failed connection');
+        //console.log( error.stack );
       });
     }else{
-      console.log('Already connected!');
+      //console.log('Already connected!');
     }
   }
 

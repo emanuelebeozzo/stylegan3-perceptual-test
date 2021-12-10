@@ -23,12 +23,12 @@ export class ImagesController {
       CommonController.extractIds(real);
       CommonController.shuffleArray(real);
       real = real.slice(0,15);
-      console.log(real);
+      //console.log(real);
       fake = await imagesService.filterList({type:1});
       CommonController.extractIds(fake);
       CommonController.shuffleArray(fake);
       fake = fake.slice(0,15); 
-      console.log(fake);
+      //console.log(fake);
       merged = [... real, ... fake]
       CommonController.shuffleArray(merged);
       res.status(200).send(merged);

@@ -46,9 +46,9 @@ routes.push(new UsersRoutes(app));
  * Configuring all the routes
  */
  app.listen(port, () => {
-  console.log('Server running on port: ' + port)
+  //console.log('Server running on port: ' + port)
   routes.forEach((route: CommonRoutes) => {
-    console.log('Routes configured for ' + route.getName());
+    //console.log('Routes configured for ' + route.getName());
   });
 });
 

@@ -47,7 +47,7 @@ export class UsersService {
    */
   async create(resource: any) : Promise<any>{
     const user = new this.usersModel.usersCollection(resource);
-    console.log(user);
+    //console.log(user);
     await user.save();
     return user._id;
   }
@@ -60,9 +60,9 @@ export class UsersService {
    * @returns id of the created resource
    */
     async getById(resourceId: any) : Promise<any>{
-      console.log(resourceId)
+      //console.log(resourceId)
       const user = await this.usersModel.usersCollection.findById(resourceId).select(['-_id', '-__v']);
-      console.log(user)
+      //console.log(user)
       return user;
     }
 

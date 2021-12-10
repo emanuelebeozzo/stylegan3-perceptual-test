@@ -8,7 +8,7 @@ function obscureImage(){
 function getUserId(){
   let address = $(location).prop('href');
   let userId = address.split("?")[1];
-  console.log("Userid: " + userId);
+  //console.log("Userid: " + userId);
   return userId;
 }
 

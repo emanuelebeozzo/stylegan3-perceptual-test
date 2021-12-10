@@ -47,7 +47,7 @@ export class ImagesService {
           if (err) {
             reject(err);
           } else {
-            console.log(users)
+            //console.log(users)
             resolve(users);
           }
         })
@@ -62,9 +62,9 @@ export class ImagesService {
    * @returns requested user
    */
   async getById(resourceId: string): Promise<any>{
-    //console.log(resourceId)
+    ////console.log(resourceId)
     const image = await this.imagesModel.imagesCollection.findById(resourceId).select(['-_id','-type', '-evaluations_list']);
-    //console.log(image)
+    ////console.log(image)
     return image;
     
   }

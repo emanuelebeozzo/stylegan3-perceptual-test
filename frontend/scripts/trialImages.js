@@ -14,11 +14,11 @@ import {obscureImage, getUserId } from './common.js';
       if(resp.ok){
         return resp.json();
       }else{
-        console.log("Error 500 or 405");
+        //console.log("Error 500 or 405");
       }
     })
     .then((data) => {
-      console.log(data);
+      //console.log(data);
       imagesId = data
       userId = getUserId();
       loadNewImage();
@@ -27,7 +27,7 @@ import {obscureImage, getUserId } from './common.js';
 
   $(document).ready(function() {
     $('#nextButton').click(function () {
-      console.log(index);
+      //console.log(index);
       sendEval();
       index++;
       $('#sliderInput').val(4).change();
@@ -37,7 +37,7 @@ import {obscureImage, getUserId } from './common.js';
 
   function loadNewImage(){
     if(index < 30 && imagesId.length == 30) {
-      console.log("Carico img "+ index)
+      //console.log("Carico img "+ index)
       fetch('../api/images/'+imagesId[index], {
         method: 'GET'
       })  
@@ -45,20 +45,20 @@ import {obscureImage, getUserId } from './common.js';
         if(resp.ok){
           return resp.json();
         }else{
-          console.log("Error 500 or 405");
+          //console.log("Error 500 or 405");
         }
       })
       .then((data) => {
-        console.log(data);
+        //console.log(data);
         $('#nextButton').attr('disabled', true);
-        $('#progressImage').html("Image: "+(index+1)+"/30")
+        //$('#progressImage').html("Image: "+(index+1)+"/30")
         $('#image').attr("src",data.path);
         if(index == 29){
           $('#nextButton').html('Submit the test');
         }
-        //console.log($('#image').prop("complete"));
+        ////console.log($('#image').prop("complete"));
         $("#image").one("load", function() {
-          console.log($('#image').prop("complete"));
+          //console.log($('#image').prop("complete"));
           clearTimeout(timer);
           $('#nextButton').attr('disabled', false);
           timer = setTimeout(obscureImage, 3000);
@@ -79,7 +79,7 @@ import {obscureImage, getUserId } from './common.js';
       user_id: userId,
       evaluation: evaluationInput
     }
-    console.log(userData);
+    //console.log(userData);
     fetch('../api/images/'+imagesId[index]+'/evaluations/', {
       method: 'POST',
       body: JSON.stringify(userData),
@@ -91,11 +91,11 @@ import {obscureImage, getUserId } from './common.js';
       if(resp.ok){
         return resp.json();
       }else{
-        console.log("Error 500 or 405");
+        //console.log("Error 500 or 405");
       }
     })
     .then((data) => {
-      console.log("Eval id: " + data);
+      //console.log("Eval id: " + data);
     })
   }
 

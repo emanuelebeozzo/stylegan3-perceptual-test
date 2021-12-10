@@ -14,21 +14,21 @@ import {getUserId } from './common.js';
       if(resp.ok){
         return resp.json();
       }else{
-        console.log("Error 500 or 405");
+        //console.log("Error 500 or 405");
       }
     })
     .then((data) => {
-      console.log(data);
+      //console.log(data);
       data["gen"].forEach(function(item){
-        //console.log(item.evaluations_list[0].evaluation); 
+        ////console.log(item.evaluations_list[0].evaluation); 
         genEval.push(item.evaluations_list[0].evaluation)
       });  
       data["real"].forEach(function(item){
-        //console.log(item.evaluations_list[0].evaluation); 
+        ////console.log(item.evaluations_list[0].evaluation); 
         realEval.push(item.evaluations_list[0].evaluation)
       }); 
-      console.log(genEval);
-      console.log(realEval);
+      //console.log(genEval);
+      //console.log(realEval);
       let correctReal = countCorrectReal();
       let correctGen = countCorrectGen();
       $('#results').html("Real images evaluated correctly: " + correctReal + "/" + realEval.length + " (" + correctReal/realEval.length*100 + "%) <br>" +
@@ -45,11 +45,11 @@ import {getUserId } from './common.js';
       if(resp.ok){
         return resp.json();
       }else{
-        console.log("Error 500 or 405");
+        //console.log("Error 500 or 405");
       }
     })
     .then((data) => {
-      console.log(data);
+      //console.log(data);
       $('#user').html("User " + data.username);
     })
   });
