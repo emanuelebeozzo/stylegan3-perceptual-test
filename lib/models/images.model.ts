@@ -2,14 +2,14 @@ import { Schema } from 'mongoose';
 import { Types } from 'mongoose';
 import { MongooseService } from '../common/services/mongoose.service';
 
-/**Class which specifies the schema for a user in the DB */
+/**Class which specifies the schema for a image in the DB */
 export class ImagesModel {
   /**
    * MongooseService instance
    */
   mongooseService: MongooseService = MongooseService.getInstance();
   /**
-   * UserModel instance
+   * ImageModel instance
    */
   private static instance: ImagesModel;
 
@@ -53,7 +53,7 @@ export class ImagesModel {
   constructor(){}
 
   /**
-   * Function which returns the instance of UserModel class
+   * Function which returns the instance of ImageModel class
    */
   public static getInstance(): ImagesModel{
     if (!this.instance) {
@@ -61,16 +61,4 @@ export class ImagesModel {
     }
     return this.instance;
   }
-
-  /**
-   * Function that validates a mongoose.Types.ObjectId value
-   * 
-   * @param id 
-   * 
-   * @returns true if valid
-   * @returns false if not valid
-   */
-  public isValidId(id:string): boolean{
-    return Types.ObjectId.isValid(id);
-  } 
 }

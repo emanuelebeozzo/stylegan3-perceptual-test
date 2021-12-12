@@ -20,11 +20,8 @@ export class MongooseService {
    */
   options = {
     autoIndex: true,            //Mongoose will automatically build indexes
-    //poolSize: 10,               //Maximum number of sockets that need to be kept open
-    //bufferMaxEntries: 0,        //Disabling MongoDB buffering mechanism, errors should be thrown when the driver is not connected
     useNewUrlParser: true,      //Use new connection string parser
     useUnifiedTopology: true   //Set the new MongoDB connection management engine
-    //useCreateIndex: true        //Set createIndex() as Mongoose's default index method for creating index
   };
 
   /**
@@ -61,15 +58,15 @@ export class MongooseService {
    */
   connect(): void{
     if(mongoose.connection.readyState === 0){
-      //console.log('MongoDB connection');
+      console.log('MongoDB connection');
       mongoose.connect(this.uri, this.options).then(() => {
-        //console.log('MongoDB is connected');
+        console.log('MongoDB is connected');
       }).catch( error => {
-        //console.log('Failed connection');
-        //console.log( error.stack );
+        console.log('Failed connection');
+        console.log( error.stack );
       });
     }else{
-      //console.log('Already connected!');
+      console.log('Already connected!');
     }
   }
 

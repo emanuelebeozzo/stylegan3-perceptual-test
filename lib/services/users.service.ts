@@ -12,13 +12,16 @@ export class UsersService {
    */
   private static instance: UsersService;
   /**
-   * Images model
+   * Users model
    */
   usersModel: UsersModel; 
+  /**
+   * Images model
+   */
   imagesModel: ImagesModel;
 
   /**
-   * Constructor which initializes the instance of the UserModel
+   * Constructor which initializes the instance of the UsersModel and ImagesModel
    */
   constructor(){ 
     this.usersModel = UsersModel.getInstance();
@@ -26,10 +29,10 @@ export class UsersService {
   }
 
   /**
-   * Function which retrieves the UserService instance
+   * Function which retrieves the UsersService instance
    * by creating it if not present
    * 
-   * @returns UserService instance
+   * @returns UsersService instance
    */
    static getInstance(): UsersService {
     if (!UsersService.instance) {
@@ -66,7 +69,13 @@ export class UsersService {
       return user;
     }
 
-
+  /**
+   * Function which return the max username of the already inserted user
+   * 
+   * @param resource 
+   * 
+   * @returns max username
+   */
   async getMaxUsername() : Promise<any>{
     const users = await this.usersModel.usersCollection.count();
     if(users !== 0) {
@@ -77,6 +86,13 @@ export class UsersService {
     }
   }
 
+  /**
+   * Function which return the list of evaluations given the params (userid and type)
+   * 
+   * @param resource 
+   * 
+   * @returns list of evaluations
+   */
   async filterList(parameters: any): Promise<any>{
     return await this.imagesModel.imagesCollection.find({ "type": parameters.type, "evaluations_list.user_id": parameters.user_id}).select({"evaluations_list.$": 1 });
   }

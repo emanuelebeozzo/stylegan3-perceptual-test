@@ -9,7 +9,7 @@ export class UsersModel {
    */
   mongooseService: MongooseService = MongooseService.getInstance();
   /**
-   * UserModel instance
+   * UsersModel instance
    */
   private static instance: UsersModel;
 
@@ -19,7 +19,7 @@ export class UsersModel {
   dbSchema = this.mongooseService.getMongoose().Schema;
 
   /**
-   * Image resource schema
+   * User resource schema
    */
   userSchema: Schema = new this.dbSchema({
     username: {
@@ -30,14 +30,14 @@ export class UsersModel {
    });
 
   /**
-   * Image model
+   * User model
    */
   usersCollection = this.mongooseService.getMongoose().model('users', this.userSchema);
 
   constructor(){}
 
   /**
-   * Function which returns the instance of UserModel class
+   * Function which returns the instance of UsersModel class
    */
   public static getInstance(): UsersModel{
     if (!this.instance) {
@@ -45,16 +45,4 @@ export class UsersModel {
     }
     return this.instance;
   }
-
-  /**
-   * Function that validates a mongoose.Types.ObjectId value
-   * 
-   * @param id 
-   * 
-   * @returns true if valid
-   * @returns false if not valid
-   */
-  public isValidId(id:string): boolean{
-    return Types.ObjectId.isValid(id);
-  } 
 }

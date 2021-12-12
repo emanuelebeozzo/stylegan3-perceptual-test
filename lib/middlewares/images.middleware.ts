@@ -3,7 +3,7 @@ import { ImagesModel } from '../models/images.model';
 import { ImagesService } from '../services/images.service'
 
 /**
- * UserMiddleware class
+ * ImageMiddleware class
  * It aims to manage all the requests received:
  * - In case of errors, the HTTP status code is returned
  * - Otherwise the request is allowed to pass

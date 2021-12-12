@@ -6,8 +6,8 @@ import { UsersRoutes } from './routes/users.route';
 
 dotenv.config();
 
-//Get the port
-/**Port on which the server will listen onto */
+/* Get the port */
+/* Port on which the server will listen onto */
 const port = process.env.PORT;
 
 /**Express instance */
@@ -23,7 +23,8 @@ app.use(express.urlencoded({ extended: true }));
  * Exposing public folder
  */
 app.use('/', express.static('frontend'));
-app.use('/img', express.static('img')); //Nota: le immagini sono accessibili così http://localhost:8080/img/ffhq/0.png 
+app.use('/img', express.static('img')); 
+//Note: the images are accessible using:  http://localhost:8080/img/...path...
 
 /**
  * Enabling CORS, respond to the OPTION HTTP verb
@@ -46,9 +47,9 @@ routes.push(new UsersRoutes(app));
  * Configuring all the routes
  */
  app.listen(port, () => {
-  //console.log('Server running on port: ' + port)
+  console.log('Server running on port: ' + port)
   routes.forEach((route: CommonRoutes) => {
-    //console.log('Routes configured for ' + route.getName());
+    console.log('Routes configured for ' + route.getName());
   });
 });
 

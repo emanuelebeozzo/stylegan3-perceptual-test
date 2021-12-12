@@ -8,8 +8,7 @@ export class UsersController {
   constructor() {}
 
   /**
-   * Asyncronous functions that retrieves the list of users from the DB
-   * and sends it back with the status code 200 otherwise 500
+   * Asyncronous functions which is not allowed, it sends back error code 405
    * @param req express Request object
    * @param res express Response object
    */
@@ -45,7 +44,7 @@ export class UsersController {
   
   /**
    * Asyncronous functions that retrieves a user with a specific id from the DB,
-   * sends back the requested user with the status code 200 otherwise 500
+   * sends back the requested username of a user with the status code 200 otherwise 500
    * @param req express Request object
    * @param res express Response object
    */
@@ -60,8 +59,7 @@ export class UsersController {
   }
 
   /**
-   * Asyncronous functions that updates a user with a specific id in the DB
-   * sends back the updated user with the status code 200 otherwise 500
+   * Asyncronous functions which is not allowed, it sends back error code 405
    * @param req express Request object
    * @param res express Response object
    */
@@ -79,8 +77,7 @@ export class UsersController {
   }
 
   /**
-   * Asyncronous functions that deletes a user with a specific id in the DB
-   * sends back the status code 204 otherwise 500
+   * Asyncronous functions which is not allowed, it sends back error code 405
    * @param req express Request object
    * @param res express Response object
    */
@@ -89,8 +86,8 @@ export class UsersController {
   }  
 
   /**
-   * Asyncronous functions that deletes a user with a specific id in the DB
-   * sends back the status code 204 otherwise 500
+   * Asyncronous functions that return the evaluations inserted by a specific user with a specific id 
+   * sends back the status code 200 otherwise 500
    * @param req express Request object
    * @param res express Response object
    */

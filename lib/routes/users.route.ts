@@ -5,8 +5,8 @@ import { UsersController } from  '../controllers/users.controller'
 import { UsersMiddleware } from '../middlewares/users.middleware'
 
 /**
- * UserRoutes class, it extends the {@link CommonRoutes} class and implements the {@link ConfigureRoutes} interface.
- * It aims to manage all the requests received for the resource _/images_.
+ * UsersRoutes class, it extends the {@link CommonRoutes} class and implements the {@link ConfigureRoutes} interface.
+ * It aims to manage all the requests received for the resource _/users.
  * It sets the middlewares and the methods that should be called for a specific operation
  */
 export class UsersRoutes extends CommonRoutes implements ConfigureRoutes {
@@ -40,8 +40,7 @@ export class UsersRoutes extends CommonRoutes implements ConfigureRoutes {
 
     /** 
      * Route for the get method on a single user with a specific id 
-     * The request is routed through a middlewares that check the existance of the id to retrieve
-     * Then the request is routed to the appropriate user controller function for getById
+     * The request is routed only to the appropriate user controller function for getById
     */
     this.app.get('/api/users/:id', [
       usersController.getById
@@ -49,9 +48,7 @@ export class UsersRoutes extends CommonRoutes implements ConfigureRoutes {
 
     /** 
      * Route for the post method (insert resource) on the users resources 
-     * The request is routed through a series of middlewares that check the validitity of 
-     * Name, surname, email password, role and birth_date
-     * Then the request is routed to the appropriate user controller function for create
+     * The request is routed oly to the appropriate user controller function for create
     */
     this.app.post('/api/users', [
       usersController.create
@@ -67,9 +64,7 @@ export class UsersRoutes extends CommonRoutes implements ConfigureRoutes {
 
     /**
      * Route for the patch method (update resource) on a single users 
-     * The request is routed through a series of middlewares that check the existence of the id to update
-     * The middlewares also check the validity of the body and of the request
-     * Then the request is routed to the appropriate user controller function for UpdateById
+     * The request is routed to the appropriate user controller function for UpdateById
     */
     this.app.patch('/api/users/:id', [
       usersController.updateById
@@ -77,8 +72,7 @@ export class UsersRoutes extends CommonRoutes implements ConfigureRoutes {
 
     /**
      * Route for the delete method on a single users 
-     * The request is routed through a middleware that check the existence of the id to delete
-     * Then the request is routed to the appropriate user controller function for deleteById
+     * The request is routed to the appropriate user controller function for deleteById
     */
     this.app.delete('/api/users/:id',[
       usersController.deleteById
@@ -92,7 +86,8 @@ export class UsersRoutes extends CommonRoutes implements ConfigureRoutes {
     ]);
 
     /** 
-     * 
+     * Route for the get method on the entire evaluation of a specific users
+     * The request is routed only to user controller function for getEval of a specific user
     */
      this.app.get('/api/users/:id/evaluations', [
       usersController.getEval
