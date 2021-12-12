@@ -49,6 +49,7 @@ import {obscureImage, getUserId } from './common.js';
         }
       })
       .then((data) => {
+        clearTimeout(timer);
         //console.log(data);
         $('#nextButton').attr('disabled', true);
         //$('#progressImage').html("Image: "+(index+1)+"/30")
@@ -59,7 +60,6 @@ import {obscureImage, getUserId } from './common.js';
         ////console.log($('#image').prop("complete"));
         $("#image").one("load", function() {
           //console.log($('#image').prop("complete"));
-          clearTimeout(timer);
           $('#nextButton').attr('disabled', false);
           timer = setTimeout(obscureImage, 3000);
         }).each(function() {
