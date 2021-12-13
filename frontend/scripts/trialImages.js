@@ -8,7 +8,7 @@ import {obscureImage, getUserId } from './common.js';
 
   $(document).ready(function() {
     fetch('../api/images', {
-      method: 'GET'
+      method: 'GET',
     })  
     .then((resp) => {
       if(resp.ok){
