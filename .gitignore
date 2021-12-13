@@ -24,3 +24,6 @@ coverage
 
 # css
 css/**
+
+# notebook save
+.ipynb_checkpoints/**

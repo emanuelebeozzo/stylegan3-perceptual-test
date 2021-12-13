@@ -85,4 +85,14 @@ export class ImagesService {
     });
     return newDocumentId;
   }
+
+  /**
+   * Asynchronous function that retrieves all the image evaluations in the database
+   * 
+   * @returns the list of all the images'evaluations in the database
+   */
+  async list(): Promise<any>{
+    const images = await this.imagesModel.imagesCollection.find().select(['_id', 'type', 'evaluations_list']).exec();
+    return images;
+  }
 }

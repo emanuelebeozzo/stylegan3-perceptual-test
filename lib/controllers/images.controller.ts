@@ -21,27 +21,33 @@ export class ImagesController {
     let merged: any;
     try{
       //console.log(req.query.username);
-      let username: number = Number(req.query.username);
-      real = await imagesService.filterList({type:0});
-      CommonController.extractIds(real);
-      if(username % 2 != 0)
-        real = real.slice(0,15);
-      else 
-        real = real.slice(15,30);
-      //CommonController.shuffleArray(real);
+      if(req.query && Object.keys(req.query).length !== 0){
+        const username: number = Number(req.query.username);
+        real = await imagesService.filterList({type:0});
+        CommonController.extractIds(real);
+        if(username % 2 != 0)
+          real = real.slice(0,15);
+        else 
+          real = real.slice(15,30);
+        //CommonController.shuffleArray(real);
 
-      fake = await imagesService.filterList({type:1});
-      CommonController.extractIds(fake);
-      if(username % 2 != 0)
-        fake = fake.slice(0,15);
-      else 
-        fake = fake.slice(15,30);
-      //CommonController.shuffleArray(fake);
+        fake = await imagesService.filterList({type:1});
+        CommonController.extractIds(fake);
+        if(username % 2 != 0)
+          fake = fake.slice(0,15);
+        else 
+          fake = fake.slice(15,30);
+        //CommonController.shuffleArray(fake);
 
-      merged = [... real, ... fake]
-      //console.log(merged);
-      CommonController.shuffleArray(merged);
-      res.status(200).send(merged);
+        merged = [... real, ... fake]
+        //console.log(merged);
+        CommonController.shuffleArray(merged);
+        res.status(200).send(merged);
+      } else {
+        //console.log("entro");
+        const imagesEvaluated = await imagesService.list();
+        res.status(200).send(imagesEvaluated);
+      }
     }catch(e){
       res.status(500).json({error: 'Internal server error'});
     }
