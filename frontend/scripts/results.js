@@ -31,9 +31,9 @@ import {getUserId } from './common.js';
       //console.log(realEval);
       let correctReal = countCorrectReal();
       let correctGen = countCorrectGen();
-      $('#results').html("Real images evaluated correctly: " + correctReal + "/" + realEval.length + " (" + correctReal/realEval.length*100 + "%) <br>" +
-                         "Generated images evaluated correctly: " + correctGen + "/" + genEval.length + " (" + correctGen/genEval.length*100 + "%) <br>" + 
-                         "Total images evaluated correctly: " +  (correctGen+correctReal) + "/" + (genEval.length+realEval.length) + " (" + (correctGen+correctReal)/(genEval.length+realEval.length)*100 + "%) <br>");
+      $('#results').html("Real images evaluated correctly: " + correctReal + "/" + realEval.length + " (" + (correctReal/realEval.length*100).toFixed(2) + "%) <br>" +
+                         "Generated images evaluated correctly: " + correctGen + "/" + genEval.length + " (" + (correctGen/genEval.length*100).toFixed(2) + "%) <br>" + 
+                         "Total images evaluated correctly: " +  (correctGen+correctReal) + "/" + (genEval.length+realEval.length) + " (" + ((correctGen+correctReal)/(genEval.length+realEval.length)*100).toFixed(2) + "%) <br>");
       partialChart(correctReal, correctGen);
       totalChart(correctGen+correctReal,30-(correctGen+correctReal))
     })

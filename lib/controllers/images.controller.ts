@@ -20,17 +20,26 @@ export class ImagesController {
     let fake: any;
     let merged: any;
     try{
+      //console.log(req.query.username);
+      let username: number = Number(req.query.username);
       real = await imagesService.filterList({type:0});
       CommonController.extractIds(real);
-      CommonController.shuffleArray(real);
-      real = real.slice(0,15);
-      //console.log(real);
+      if(username % 2 != 0)
+        real = real.slice(0,15);
+      else 
+        real = real.slice(15,30);
+      //CommonController.shuffleArray(real);
+
       fake = await imagesService.filterList({type:1});
       CommonController.extractIds(fake);
-      CommonController.shuffleArray(fake);
-      fake = fake.slice(0,15); 
-      //console.log(fake);
+      if(username % 2 != 0)
+        fake = fake.slice(0,15);
+      else 
+        fake = fake.slice(15,30);
+      //CommonController.shuffleArray(fake);
+
       merged = [... real, ... fake]
+      //console.log(merged);
       CommonController.shuffleArray(merged);
       res.status(200).send(merged);
     }catch(e){

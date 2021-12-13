@@ -7,8 +7,9 @@ import {obscureImage, getUserId } from './common.js';
   let timer;
 
   $(document).ready(function() {
-    fetch('../api/images', {
-      method: 'GET',
+    userId = getUserId();
+    fetch('../api/users/' + userId, {
+      method: 'GET'
     })  
     .then((resp) => {
       if(resp.ok){
@@ -18,10 +19,21 @@ import {obscureImage, getUserId } from './common.js';
       }
     })
     .then((data) => {
-      //console.log(data);
-      imagesId = data
-      userId = getUserId();
-      loadNewImage();
+      fetch('../api/images?username=' + data.username, {
+        method: 'GET'
+      })  
+      .then((resp) => {
+        if(resp.ok){
+          return resp.json();
+        }else{
+          //console.log("Error 500 or 405")
+        }
+      })
+      .then((data) => {
+        //console.log(data);
+        imagesId = data
+        loadNewImage();
+      })
     })
   });
 
