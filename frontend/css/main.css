@@ -21,8 +21,8 @@ td {
   width: 14.28%; }
 
 img {
-  width: 15cm;
-  height: 15cm; }
+  width: 10cm;
+  height: 10cm; }
 
 #image {
   margin-top: 50px;
@@ -85,6 +85,21 @@ table {
   vertical-align: middle;
   position: fixed;
   width: 100%; }
+
+#startTitle {
+  position: absolute;
+  text-align: center;
+  top: 30%;
+  width: 100%; }
+
+#nextButton {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  top: 80%;
+  margin-top: 400px;
+  width: 70%;
+  height: 70px; }
 
 /******************************************************************************/
 /****************************************************************************************/
