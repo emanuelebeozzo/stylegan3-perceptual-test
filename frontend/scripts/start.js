@@ -1,6 +1,6 @@
 (function ($){
   $(document).ready(function() {
-    $('#nextButton').click(function () {
+    $('#startButton').click(function () {
       fetch('../api/users/', {
         method: 'POST',
         headers: {
