@@ -59,7 +59,7 @@ export class ImagesService {
    * @returns users that are compliant with the parameter passed
    */
   async filterList(parameters: any): Promise<any>{
-    return await this.imagesModel.imagesCollection.find(parameters).select(['_id']);
+    return await this.imagesModel.imagesCollection.find(parameters).select(['_id']).sort('path');
   }
 
   /**
