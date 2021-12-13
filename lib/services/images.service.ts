@@ -92,7 +92,7 @@ export class ImagesService {
    * @returns the list of all the images'evaluations in the database
    */
   async list(): Promise<any>{
-    const images = await this.imagesModel.imagesCollection.find().select(['_id', 'type', 'evaluations_list']).exec();
+    const images = await this.imagesModel.imagesCollection.find().select(['_id', 'type', 'evaluations_list.evaluation']).exec();
     return images;
   }
 }
