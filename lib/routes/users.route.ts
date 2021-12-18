@@ -34,7 +34,7 @@ export class UsersRoutes extends CommonRoutes implements ConfigureRoutes {
      * Route for the get method on the entire collection of users
      * The request is routed only to user controller function for get all (list)
     */
-    this.app.get('/api/images', [
+    this.app.get('/api/users', [
       usersController.list
     ]);
 

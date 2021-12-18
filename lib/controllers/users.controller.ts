@@ -8,12 +8,18 @@ export class UsersController {
   constructor() {}
 
   /**
-   * Asyncronous functions which is not allowed, it sends back error code 405
+   * Asyncronous functions which return a list of all the users'id stored in the DB 
    * @param req express Request object
    * @param res express Response object
    */
   async list(req: Request, res: Response): Promise<void>{
-    res.status(405).json({ error: 'Method not allowed' });
+    const userService = UsersService.getInstance();
+    try{
+      const users = await userService.list();
+      res.status(200).send(users);
+    }catch(e){
+      res.status(500).json({error: 'Internal server error'});
+    }
   }
 
   /**

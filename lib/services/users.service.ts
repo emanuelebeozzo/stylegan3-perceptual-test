@@ -28,6 +28,16 @@ export class UsersService {
     this.imagesModel = ImagesModel.getInstance();
   }
 
+   /**
+   * Asynchronous function that retrieves all the users id in the database
+   * 
+   * @returns the list of all the users id in the database
+   */
+    async list(): Promise<any>{
+      const users = await this.usersModel.usersCollection.find().select(['_id', '-__v']).exec();
+      return users;
+    }
+  
   /**
    * Function which retrieves the UsersService instance
    * by creating it if not present
