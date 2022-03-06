@@ -1,5 +1,5 @@
 # Perceptual test on StyleGAN3
-This repository contains the material to repeat the experiment conducted in the paper "More Real than Real: A Study on Human Visual Perception of Synthetic Faces" using images generated with StyleGAN3 ([https://github.com/NVlabs/stylegan3](https://github.com/NVlabs/stylegan3)). 
+This repository contains the material to repeat the experiment conducted in the paper "More Real than Real: A Study on Human Visual Perception of Synthetic Faces" (by Federica Lago, Cecilia Pasquini, Rainer Böhme, Hélène Dumont, Valérie Goffaux, Giulia Boato) using images generated with StyleGAN3 ([https://github.com/NVlabs/stylegan3](https://github.com/NVlabs/stylegan3)). 
 
 
 The web application used for the test is composed of a NodeJS server with Express that export some APIs: the implementation of the server can be found in the "/lib" folder. 
